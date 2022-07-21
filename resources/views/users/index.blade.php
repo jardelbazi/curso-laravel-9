@@ -14,6 +14,12 @@
 <ul>
 	@foreach ($users as $user)
 		<li>
+			@if ($user->image)
+				<img src="{{ url('storage/' . $user->image) }}" alt="{{ $user->name }}" class="object-cover w-20">
+			@else
+				<img src="https://picsum.photos/200/300" alt="{{ $user->name }}"class="object-cover w-20">
+			@endif
+			{{ $user->name }} -
 			{{ $user->name }} -
 			{{ $user->email }}
 			| <a href="{{ route('users.show', $user->id) }}">Detalhes</a>

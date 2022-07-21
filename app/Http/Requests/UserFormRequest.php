@@ -29,6 +29,7 @@ class UserFormRequest extends FormRequest
             'name' => 'required|string|max:255|min:3',
             'email' => "required|email|unique:users,email,{$id},id",
             'password' => 'required|min:6|max:15',
+            'image' => 'nullable|image|max:1024',
         ];
 
 		if ($this->method('PUT'))
