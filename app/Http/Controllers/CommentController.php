@@ -29,7 +29,7 @@ class CommentController extends Controller
 		$comments = $user->comments()->where(function ($query) use ($search) {
 			if ($search)
 				$query->where('body', 'LIKE', "%{$search}%");
-		})->get();
+		})->paginate();
 
 		return view('users.comments.index', [
 			'user' => $user,

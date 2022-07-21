@@ -21,4 +21,6 @@
 	@endforeach
 </ul>
 
+<div>{{ $comments->appends(['search' => request()->get('search', '')])->links() }}</div>
+
 @endsection

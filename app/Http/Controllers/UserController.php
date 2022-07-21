@@ -22,7 +22,9 @@ class UserController extends Controller
 				$query->where('email', $search)
 					->orWhere('name', 'LIKE', "%{$search}%");
 			}
-		})->with(['comments'])->get();
+		})
+		->with(['comments'])
+		->paginate();
 
 		return view('users.index', [
 			'users' => $users
